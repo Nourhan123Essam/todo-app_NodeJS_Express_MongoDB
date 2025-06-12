@@ -8,11 +8,12 @@ on:
 env:
   IMAGE_NAME: todo-app-node
   REGISTRY: docker.io
-  RAILWAY_PROJECT: 2e76af0e-4b6c-43d9-8184-a552ec3bc500
+  SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658  # Service ID for Railway
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -36,12 +37,16 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.TAG }}
 
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
+  deploy-to-railway:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    container: ghcr.io/railwayapp/cli:latest
+    env:
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Deploy to Railway
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: |
-          railway up --project $RAILWAY_PROJECT
-
+        run: railway up --service=${{ env.SVC_ID }}
