@@ -4,11 +4,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Allows manual triggering
 
 env:
   IMAGE_NAME: todo-app-node
   REGISTRY: docker.io
- 
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -42,11 +43,12 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     env:
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658 # Railway Service ID
-      ENV_ID: 6d2cdaa1-97a2-4150-a79c-0ecd8834a43a # Railway Environment ID
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Deploy to Railway
-        run: railway up --service=${{ env.SVC_ID }} --environment=${{ env.ENV_ID }}
+        run: |
+          railway up \
+            --service=1e483560-62ff-4cff-bc66-e0758daf0658 \
+            --environment=6d2cdaa1-97a2-4150-a79c-0ecd8834a43a || true
