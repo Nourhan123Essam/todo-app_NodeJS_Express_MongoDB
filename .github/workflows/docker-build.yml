@@ -8,9 +8,7 @@ on:
 env:
   IMAGE_NAME: todo-app-node
   REGISTRY: docker.io
-  SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658  # Railway Service ID
-  ENV_ID: 6d2cdaa1-97a2-4150-a79c-0ecd8834a43a  # Railway Environment ID
-
+ 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -44,8 +42,8 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     env:
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658
-      ENV_ID: 6d2cdaa1-97a2-4150-a79c-0ecd8834a43a
+      SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658 # Railway Service ID
+      ENV_ID: 6d2cdaa1-97a2-4150-a79c-0ecd8834a43a # Railway Environment ID
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
