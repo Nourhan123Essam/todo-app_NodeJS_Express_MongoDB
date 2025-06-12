@@ -59,10 +59,10 @@ The project was created to:
 ## 📷 Screenshots
 
 ### 🔹 Docker Compose running locally  
-![Docker Compose Running](./Screenshots/docker-compose.png)
+![Docker Compose Running](https://github.com/Nourhan123Essam/todo-app_NodeJS_Express_MongoDB/blob/main/Screeshots/Docker-compose.png)
 
 ### 🔹 Auth0 Login Integration  
-![Auth0 Login](./Screenshots/auth0-login.png)
+![Auth0 Login](https://github.com/Nourhan123Essam/todo-app_NodeJS_Express_MongoDB/blob/main/Screeshots/login.png)
 
 ### 🔹 Todo App Interface  
-![Todo App](./Screenshots/todo-ui.png)
+![Todo App](https://github.com/Nourhan123Essam/todo-app_NodeJS_Express_MongoDB/blob/main/Screeshots/todo-app.png)
