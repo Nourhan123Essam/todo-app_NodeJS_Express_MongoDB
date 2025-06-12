@@ -1,6 +1,6 @@
 # Todo App (Node.js, Express, MongoDB)
 
-This is a simple **Todo App** built with **Node.js**, **Express**, and **MongoDB** to demonstrate backend flexibility beyond my usual .NET stack.
+This is a *very* simple **Todo App**... that happens to use **Clean Architecture**, **Docker**, **GitHub Actions**, **Railway Deployments**, and **CI/CD pipelines**
 
 ---
 
@@ -14,21 +14,22 @@ This is a simple **Todo App** built with **Node.js**, **Express**, and **MongoDB
 
 The project was created to:
 - Practice building backend apps using **Express.js** and **MongoDB**.
-- Replace **ASP.NET + SQL Server** with a completely different stack.
-- Explore deployment using **Docker**, **GitHub Actions**, **Railway**, and **MongoDB Atlas**.
+- Learn end-to-end automation: **Docker**, **CI/CD**, **Railway**, and **MongoDB Atlas**.
+- Explore using **Auth0** as a third-party authentication service instead of custom login.
+
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer       | Tech Used                                   |
-|-------------|---------------------------------------------|
-| Backend     | Node.js, Express                            |
-| Database    | MongoDB (Atlas for cloud, Docker for local) |
-| Auth        | Auth0                                       |
-| CI/CD       | GitHub Actions, Docker Hub                  |
-| Deployment  | Railway                                     |
-| Dev Tools   | Docker, Docker Compose                      |
+| Layer       | Tech Used                                                   |
+|-------------|-------------------------------------------------------------|
+| Backend     | Node.js, Express                                            |
+| Database    | MongoDB (Atlas for cloud, Docker for local)                 |
+| Auth        | Auth0                                                       |
+| Docker      | Docker, Docker Compose                                      |
+| CI/CD       | GitHub Actions → (Docker Hub, Railway)                      |
+| Deployment  | Railway (automated via CLI in CI/CD)                        |
 
 ---
 
@@ -42,17 +43,29 @@ The project was created to:
 ## 🧪 Local vs Cloud
 
 ### ☁️ Cloud Deployment
+- Fully automated CI/CD via GitHub Actions
+- App is built → pushed to Docker Hub → deployed to Railway
 - Hosted on **Railway**
 - Uses **MongoDB Atlas**
 - Auth handled via **Auth0**
-- Automatically built and pushed to Docker Hub
 
 ### 🖥️ Local Development
-- Uses Docker Compose to run MongoDB and the app
+- Docker Compose spins up the app with MongoDB container
 - MongoDB data is persisted using Docker volumes
 - To run:
   ```bash
   docker compose up --build
+
+---
+
+## 🌀 CI/CD Pipeline
+
+What happens when I push to `main`?
+
+1. 🔍 GitHub Actions runs the pipeline
+2. 🐳 Docker builds the app and pushes image to Docker Hub
+3. ⚙️ Railway CLI deploys the new image automatically
+4. 🏁 Your app is live in seconds... unless Railway goes on vacation ☁️🔥
 
 ---
 
