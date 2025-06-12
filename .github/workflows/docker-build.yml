@@ -44,8 +44,8 @@ jobs:
     container: ghcr.io/railwayapp/cli:latest
     env:
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      SVC_ID: ${{ env.SVC_ID }}
-      ENV_ID: ${{ env.ENV_ID }}
+      SVC_ID: 1e483560-62ff-4cff-bc66-e0758daf0658
+      ENV_ID: 6d2cdaa1-97a2-4150-a79c-0ecd8834a43a
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
