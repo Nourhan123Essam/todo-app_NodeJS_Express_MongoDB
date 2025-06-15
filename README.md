@@ -10,6 +10,15 @@ This is a *very* simple **Todo App**... that happens to use **Clean Architecture
 
 ---
 
+## 🎬 Project Demo (Video)
+
+[![Watch the video](https://img.youtube.com/vi/H_PgxFZfXh4/hqdefault.jpg)](https://youtu.be/H_PgxFZfXh4)
+
+🔗 [Watch on YouTube](https://youtu.be/H_PgxFZfXh4) – "Trying CI/CD for the First Time!"
+
+
+---
+
 ## 🚀 Purpose
 
 The project was created to:
